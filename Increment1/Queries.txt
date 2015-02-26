@@ -1,0 +1,52 @@
+create table Authentication(
+userId varchar2(10) NOT NULL,
+userName varchar2(25),
+password varchar2(25),
+PRIMARY KEY (userName),
+FOREIGN KEY (userId) REFERENCES Registration(userId));
+
+create table Registration(
+userId varchar2(10),
+firstName varchar2(25) NOT NULL,
+lastName varchar2(25),
+email varchar2(50) NOT NULL,
+mobile number(10) NOT NULL,
+address varchar2(100) NOT NULL,
+dob date,
+user_flag varchar2(1),
+PRIMARY KEY(userId));
+
+create table GiverItemTable(
+giverId varchar2(10),
+itemId varchar2(10),
+itemCategory varchar2(25) NOT NULL,
+itemName varchar2(25) NOT NULL,
+itemImage blob,
+itemDescription varchar2(50),
+datePosted date DEFAULT sysdate,
+PRIMARY KEY (itemId),
+FOREIGN KEY (giverId) REFERENCES Registration(userId));
+
+create table GrabberItemTable(
+grabberId varchar2(10),
+itemId varchar2(10),
+itemCategory varchar2(25) NOT NULL,
+itemName varchar2(25) NOT NULL,
+itemImage blob,
+itemDescription varchar2(50),
+dateGrabbed date DEFAULT sysdate,
+PRIMARY KEY (itemId),
+FOREIGN KEY (grabberId) REFERENCES Registration(userId));
+
+create sequence userId_seq
+minvalue 1
+start with 1
+increment by 1
+nocache;
+
+create sequence itemId_seq
+minvalue 1
+start with 1
+increment by 1
+nocache;
+
