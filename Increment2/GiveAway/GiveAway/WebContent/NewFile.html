@@ -1,0 +1,308 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <script src="http://code.jquery.com/jquery-1.8.3.js"></script>
+  <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+  <link rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css">
+  <link rel="stylesheet" type="text/css" href="/css/result-light.css">
+<link rel="stylesheet" type="text/css" href="css/registerstyle.css" ></link>
+ <script> 
+
+
+ function validate()
+ {
+	 
+	 
+ 	var x=document.add.firstName.value;
+ 	var y=document.add.lastName.value;
+ 	var z=document.add.address.value;
+ 	var p=document.add.mobile.value;
+ 	var q=document.add.userName.value;
+ 	var r=document.add.email.value;
+ 	var s=document.add.password.value;
+ 	var t=document.add.password1.value;
+ 	var u=document.add.city.value;
+ 	var v=document.add.zipcode.value;
+
+ 	if(x.length==0 || y.length==0 || z.length==0 || p.length==0 || q.length==0 || r.length==0 || s.length==0 || t.length==0 || u.length==0 || v.length==0 )
+	{
+		$("#valid").html("Dont leave any field empty....");
+		$("#valid" ).css( "color","red" );
+		if(x.length==0){$("#valid1").html("First Name Mandatory*");$("#valid1" ).css( "color","red" );}else{$("#valid1").html("");}
+		if(y.length==0){$("#valid2").html("Last Name Mandatory*");$("#valid2" ).css( "color","red" );}else{$("#valid2").html("");}
+		if(q.length==0){$("#valid3").html("User Name Mandatory*");$("#valid3" ).css( "color","red" );}else{$("#valid3").html("");}
+		if(r.length==0){$("#valid4").html("Email Address Mandatory*");$("#valid4" ).css( "color","red" );}else{$("#valid4").html("");}
+		if(p.length==0){$("#valid5").html("Mobie Number Mandatory*");$("#valid5" ).css( "color","red" );}else{$("#valid5").html("");}
+		if(z.length==0){$("#valid6").html("Address Mandatory*");$("#valid6" ).css( "color","red" );}else{$("#valid6").html("");}
+		if(u.length==0){$("#valid7").html("City Mandatory*");$("#valid7" ).css( "color","red" );}else{$("#valid7").html("");}
+		if(v.length==0){$("#valid8").html("Zipcode Mandatory*");$("#valid8" ).css( "color","red" );}else{$("#valid8").html("");}
+		if(s.length==0){$("#valid9").html("Password Mandatory*");$("#valid9" ).css( "color","red" );}else{$("#valid9").html("");}
+		if(t.length==0){$("#valid10").html("Retype Password*");$("#valid10" ).css( "color","red" );}else{$("#valid10").html("");}
+		 if(s == t) {
+             alert("Passwords Matched");
+         } else {
+             alert("Passwords didnot matched");
+         }  
+		return false;
+	    }
+	    else
+	    {
+		return true;
+	    }
+ 	
+     
+
+        
+		
+ }
+ 
+ function validateEmail(email) {
+	    var re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+	    return re.test(email);
+	}
+ 
+ function allLetterFirst(inputtxt)  
+ {   
+ var letters = /^[A-Za-z\s]+$/;  
+ if(inputtxt.value.match(letters))  
+ {  
+ return true;  
+ }  
+ else  
+ {  
+	 $("#valid1").html("Enter only Alphabets*"); $("#valid1" ).css( "color","red" ); 
+ return false;  
+ }  
+ }  
+ 
+ function allLetterLast(inputtxt)  
+ {   
+ var letters = /^[A-Za-z\s]+$/;  
+ if(inputtxt.value.match(letters))  
+ {  
+ return true;  
+ }  
+ else  
+ {  
+	 $("#valid2").html("Enter only Alphabets*"); $("#valid2" ).css( "color","red" ); 
+ return false;  
+ }  
+ } 
+ 
+ function valCity(inputtxt)  
+ {   
+ var letters = /^[A-Za-z\s]+$/;  
+ if(inputtxt.value.match(letters))  
+ {  
+ return true;  
+ }  
+ else  
+ {  
+	 $("#valid7").html("Enter only Alphabets*"); $("#valid7" ).css( "color","red" ); 
+ return false;  
+ }  
+ } 
+ 
+ function userNameVal(inputtxt)  
+ {   
+ var letters = /^[0-9A-Za-z]+$/;  
+ if(inputtxt.value.match(letters))  
+ {  
+ return true;  
+ }  
+ else  
+ {  
+	 $("#valid3").html("No special characters*"); $("#valid3" ).css( "color","red" ); 
+ return false;  
+ }  
+ } 
+ 
+ function valMobile(inputtxt)  
+ {  
+	  var phoneno = /^\d{10}$/;  
+	  if(inputtxt.value.match(phoneno))  
+	  {  
+	      return true;  
+	  }  
+	  else  
+	  {  
+		  $("#valid5").html("Not a valid phone number*"); $("#valid5" ).css( "color","red" );  
+	     return false;  
+	  }  
+	  } 
+ 
+ function valZip(inputtxt)  
+ {  
+	  var zipcode = /^\d{5}$/;  
+	  if(inputtxt.value.match(zicode))  
+	  {  
+	      return true;  
+	  }  
+	  else  
+	  {  
+		  $("#valid8").html("Not a valid zip code*"); $("#valid8" ).css( "color","red" );  
+	     return false;  
+	  }  
+	  } 
+ 
+ $(function() {
+	    $( "#datepicker" ).datepicker();
+	});
+</script>	
+<title>Give Away</title>
+</head>
+<body>	
+	
+		
+<!--start-login-form-->
+				
+<div class="main">
+			    	
+<div class="login-head">
+					    
+<h1>Give Away Signup</h1>
+					
+</div>
+					
+<div  class="wrap">
+						  
+<div class="Regisration">
+						  	
+
+			<div class="Regisration-head">
+						    	
+				
+				<h2><span></span>Register</h2>
+						 	
+ 
+			</div>
+						  	
+
+			<form  name ="add" onsubmit="return validate()">
+						  		
+                 First Name*
+				<input type="text" name="firstName" placeholder="First name"  onchange="allLetterFirst(document.add.firstName)"><br>
+				<div id="valid1"></div>
+				  Last Name*		
+				<input type="text" name="lastName" placeholder="Last name"  onchange="allLetterLast(document.add.lastName)"><br>
+				<div id="valid2"></div>
+				  User Name*		  		
+				<input type="text" name="userName" placeholder="User name"  onchange="userNameVal(document.add.userName)"><br>
+				<div id="valid3"></div>
+                  Email Address*	
+				<input type="text" name="email" placeholder="Email Address" onchange="validateEmail(document.add.email)"><br>
+				<div id="valid4"></div>
+                  Mobile Number*
+				<input type="text" name="mobile"  placeholder="Mobile number" onchange="valMobile(document.add.mobile)"> <br>  
+				<div id="valid5"></div>		
+				  Address*
+				<input type="text" name="address" placeholder="Address" > <br>
+				<div id="valid6"></div>
+				  City*<br>
+				<input type="text" name="city" placeholder="City" onchange="valCity(document.add.city)"> <br>
+				<div id="valid7"></div>
+				
+				State<br>	
+				<select name="State">
+	<option value="AL">Alabama</option>
+	<option value="AK">Alaska</option>
+	<option value="AZ">Arizona</option>
+	<option value="AR">Arkansas</option>
+	<option value="CA">California</option>
+	<option value="CO">Colorado</option>
+	<option value="CT">Connecticut</option>
+	<option value="DE">Delaware</option>
+	<option value="DC">District Of Columbia</option>
+	<option value="FL">Florida</option>
+	<option value="GA">Georgia</option>
+	<option value="HI">Hawaii</option>
+	<option value="ID">Idaho</option>
+	<option value="IL">Illinois</option>
+	<option value="IN">Indiana</option>
+	<option value="IA">Iowa</option>
+	<option value="KS">Kansas</option>
+	<option value="KY">Kentucky</option>
+	<option value="LA">Louisiana</option>
+	<option value="ME">Maine</option>
+	<option value="MD">Maryland</option>
+	<option value="MA">Massachusetts</option>
+	<option value="MI">Michigan</option>
+	<option value="MN">Minnesota</option>
+	<option value="MS">Mississippi</option>
+	<option value="MO">Missouri</option>
+	<option value="MT">Montana</option>
+	<option value="NE">Nebraska</option>
+	<option value="NV">Nevada</option>
+	<option value="NH">New Hampshire</option>
+	<option value="NJ">New Jersey</option>
+	<option value="NM">New Mexico</option>
+	<option value="NY">New York</option>
+	<option value="NC">North Carolina</option>
+	<option value="ND">North Dakota</option>
+	<option value="OH">Ohio</option>
+	<option value="OK">Oklahoma</option>
+	<option value="OR">Oregon</option>
+	<option value="PA">Pennsylvania</option>
+	<option value="RI">Rhode Island</option>
+	<option value="SC">South Carolina</option>
+	<option value="SD">South Dakota</option>
+	<option value="TN">Tennessee</option>
+	<option value="TX">Texas</option>
+	<option value="UT">Utah</option>
+	<option value="VT">Vermont</option>
+	<option value="VA">Virginia</option>
+	<option value="WA">Washington</option>
+	<option value="WV">West Virginia</option>
+	<option value="WI">Wisconsin</option>
+	<option value="WY">Wyoming</option>
+</select><br>
+Zipcode
+<input type="text" name="zipcode"  placeholder="Zipcode" onchange="valZip(document.add.zipcode)"><br>
+<div id="valid8"></div>
+
+Date Of Birth* <input type="text" id="datepicker" size="15"><br>
+				Password*	
+				<input type="password" name="password" placeholder="password"><br>
+				<div id="valid9"></div>
+				Retype Password*				
+				<input type="password" name="password1" placeholder="Retype password"><br>
+				<div id="valid10"></div>
+								 
+						<div id="valid"></div>	
+											
+			
+					<div class="p-container">
+								
+					
+						<label class="checkbox"><input type="checkbox" name="checkbox" checked><i></i>I agree to the Terms and Conditions</label>
+								
+
+						<div class ="clear"></div>
+							
+
+					</div>
+					<div class="submit">
+
+					<input type="submit"  onclick= "validate()" value="Sign Me Up" >
+								
+
+					</div>					
+	</form>
+
+		</div>
+		
+		
+</div>
+				
+						
+<div class ="copy-right">
+
+</div>
+			  
+</div>
+	
+</body>
+
+</html>
