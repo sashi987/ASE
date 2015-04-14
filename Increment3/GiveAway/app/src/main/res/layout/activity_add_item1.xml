@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="@drawable/backgrnd"
+    android:layout_height="match_parent">
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:hint="Item Name"
+        android:ems="10"
+        android:id="@+id/itemname"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="76dp" />
+    <Spinner
+        android:id="@+id/spinner1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:drawable/btn_dropdown"
+        android:spinnerMode="dropdown"
+        android:layout_below="@+id/itemname"
+        android:layout_alignLeft="@+id/itemname"
+        android:layout_alignStart="@+id/itemname"
+        android:layout_alignRight="@+id/itemname"
+        android:layout_alignEnd="@+id/itemname" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:hint="Quantity"
+        android:id="@+id/quantity"
+        android:layout_below="@+id/spinner1"
+        android:layout_alignLeft="@+id/spinner1"
+        android:layout_alignStart="@+id/spinner1" />
+
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/yearsused"
+        android:hint="Years Used"
+        android:layout_centerVertical="true"
+        android:layout_alignLeft="@+id/quantity"
+        android:layout_alignStart="@+id/quantity" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ADD ITEM"
+        android:background="@drawable/bluebtn"
+        android:id="@+id/button"
+        android:layout_marginTop="143dp"
+        android:layout_below="@+id/quantity"
+        android:layout_centerHorizontal="true" />
+
+
+</RelativeLayout>
