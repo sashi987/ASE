@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title> - jsFiddle demo by sashidhar</title>
+
+    <script type='text/javascript' src='http://code.jquery.com/jquery-1.9.1.js'></script>
+
+
+
+
+    <script type="text/javascript" src="http://code.jquery.com/mobile/1.3.0-beta.1/jquery.mobile-1.3.0-beta.1.js"></script>
+
+
+
+
+
+
+
+    <style type='text/css'>
+        <link rel="stylesheet" type="text/css" href="http://code.jquery.com/mobile/1.3.0-beta.1/jquery.mobile-1.3.0-beta.1.css">
+
+        <link rel="stylesheet" type="text/css" href="/css/result-light.css">
+    </style>
+
+
+
+    <script type='text/javascript'>
+$(window).load(function(){
+jQuery(document).ready(function ($) {
+
+  $('#btnSubmit').click(function () {
+
+    // the search term
+    var q = $('#searchquery').val().trim();
+
+    // container to display search results
+    var $results = $('#results');
+
+    // YouTube Data API base URL (JSON response)
+    var url = "http://gdata.youtube.com/feeds/api/standardfeeds/"
+
+    // set paid-content as false to hide movie rentals
+    url = url + '/IN';
+
+    // set duration as long to filter partial uploads
+   // url = url + '&duration=long';
+
+    // order search results by view count
+    //url = url + '&orderby=viewCount';
+
+    // we can request a maximum of 50 search results in a batch
+    url = url + '/most_popular_';
+
+    $.getJSON(url + "&q=" + q, function (json) {
+
+      var count = 0;
+
+      if (json.data.items) {
+
+        var items = json.data.items;
+        var html = "";
+
+        items.forEach(function (item) {
+
+          // Check the duration of the video,
+          // full-length movies are generally longer than 1 hour
+          var duration = Math.round((item.duration) / (60 * 60));
+
+          // Filter out videos that aren't in the Film or Movies category
+          if ((duration > 1) && (item.category == "Movies" || item.category == "Film")) {
+
+            // Include the YouTube Watch URL youtu.be
+            html += '<p><a href="http://youtu.be/' + item.id + '">';
+
+            // Add the default video thumbnail (default quality)
+            html += '<img src="http://i.ytimg.com/vi/' + item.id + '/default.jpg">';
+
+            // Add the video title and the duration
+            html += '<h2>' + item.title + ' ' + item.duration + '</h2></a></p>';
+            count++;
+          }
+        });
+      }
+
+      // Did YouTube return any search results?
+      if (count == 0) {
+        $("#results").html("No videos found");
+      } else {
+        // Display the YouTube search results
+        $("#results").html(html);
+      }
+    });
+  });
+});
+});
+
+</script>
+
+
+</head>
+<body>
+<input id="searchquery" />
+<input id = "btnSubmit" type="submit" value="Query"/>
+<div id="results"></div>
+
+</body>
+
+
+</html>
+
