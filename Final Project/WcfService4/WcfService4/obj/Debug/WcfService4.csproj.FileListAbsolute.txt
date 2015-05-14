@@ -1,0 +1,5 @@
+c:\users\shashi\documents\visual studio 2010\Projects\WcfService4\WcfService4\bin\WcfService4.dll
+c:\users\shashi\documents\visual studio 2010\Projects\WcfService4\WcfService4\bin\WcfService4.pdb
+c:\users\shashi\documents\visual studio 2010\Projects\WcfService4\WcfService4\obj\Debug\WcfService4.dll
+c:\users\shashi\documents\visual studio 2010\Projects\WcfService4\WcfService4\obj\Debug\WcfService4.pdb
+C:\Users\Shashi\Documents\Visual Studio 2010\Projects\WcfService4\WcfService4\obj\Debug\WcfService4.csprojResolveAssemblyReference.cache
